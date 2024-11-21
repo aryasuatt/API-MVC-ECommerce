@@ -1,0 +1,107 @@
+﻿/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f4; /* Krem tonlarında arka plan */
+    color: #5c5c5c; /* Koyu gri yazı rengi */
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #5c5c5c; /* Koyu gri başlık rengi */
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #fef9e4; /* Krem rengi kart arka planı */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    }
+
+.card-body {
+    padding: 20px;
+    background-color: #fff8e1; /* Daha açık krem tonlarında iç alan */
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #d6a700; /* Altın sarısı renk başlık için */
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #7c7c7c; /* Orta gri renk açıklamalar için */
+}
+
+.card img {
+    border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: #d6a700; /* Altın sarısı buton rengi */
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-primary:hover {
+        background-color: #b58f00; /* Daha koyu sarı hover rengi */
+    }
+
+    .btn-primary:focus, .btn-primary:active {
+        box-shadow: none;
+    }
+
+/* Grid Layout */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.col-md-4 {
+    flex: 0 0 calc(33.3333% - 20px);
+    max-width: calc(33.3333% - 20px);
+}
+
+/* "Add to Cart" Animation */
+.cart-icon {
+    font-size: 18px;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+    .cart-icon.added {
+        transform: scale(1.2);
+        color: #28a745;
+    }
+
+/* Animation for product images */
+.card img {
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

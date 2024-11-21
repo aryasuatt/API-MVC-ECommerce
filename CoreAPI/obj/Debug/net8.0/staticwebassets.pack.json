@@ -1,0 +1,65 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\aryas\\OneDrive\\Masaüstü\\Repo-Course\\api-mvc-basic\\CoreAPI\\wwwroot\\images\\13762e7a-5fb6-4346-92a1-621ba3169527.jpeg",
+      "PackagePath": "staticwebassets\\images\\13762e7a-5fb6-4346-92a1-621ba3169527.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\aryas\\OneDrive\\Masaüstü\\Repo-Course\\api-mvc-basic\\CoreAPI\\wwwroot\\images\\30ea0d2c-245a-4e8f-9bf7-bac2fcb339dc.jpg",
+      "PackagePath": "staticwebassets\\images\\30ea0d2c-245a-4e8f-9bf7-bac2fcb339dc.jpg"
+    },
+    {
+      "Id": "C:\\Users\\aryas\\OneDrive\\Masaüstü\\Repo-Course\\api-mvc-basic\\CoreAPI\\wwwroot\\images\\39332695-a489-402a-913e-a9535b81d7f8.jpg",
+      "PackagePath": "staticwebassets\\images\\39332695-a489-402a-913e-a9535b81d7f8.jpg"
+    },
+    {
+      "Id": "C:\\Users\\aryas\\OneDrive\\Masaüstü\\Repo-Course\\api-mvc-basic\\CoreAPI\\wwwroot\\images\\48bb71c2-279c-49ec-9c67-765234ebdc82.jpg",
+      "PackagePath": "staticwebassets\\images\\48bb71c2-279c-49ec-9c67-765234ebdc82.jpg"
+    },
+    {
+      "Id": "C:\\Users\\aryas\\OneDrive\\Masaüstü\\Repo-Course\\api-mvc-basic\\CoreAPI\\wwwroot\\images\\4c1fc906-9a31-40d6-8ca4-04d26e5aaf9e.jpg",
+      "PackagePath": "staticwebassets\\images\\4c1fc906-9a31-40d6-8ca4-04d26e5aaf9e.jpg"
+    },
+    {
+      "Id": "C:\\Users\\aryas\\OneDrive\\Masaüstü\\Repo-Course\\api-mvc-basic\\CoreAPI\\wwwroot\\images\\660c6e7a-147b-4552-96bc-db525807d284.jpg",
+      "PackagePath": "staticwebassets\\images\\660c6e7a-147b-4552-96bc-db525807d284.jpg"
+    },
+    {
+      "Id": "C:\\Users\\aryas\\OneDrive\\Masaüstü\\Repo-Course\\api-mvc-basic\\CoreAPI\\wwwroot\\images\\9b7d63d1-5146-43fb-81f4-62c4b0314f61.jpg",
+      "PackagePath": "staticwebassets\\images\\9b7d63d1-5146-43fb-81f4-62c4b0314f61.jpg"
+    },
+    {
+      "Id": "C:\\Users\\aryas\\OneDrive\\Masaüstü\\Repo-Course\\api-mvc-basic\\CoreAPI\\wwwroot\\images\\9ec33065-3529-4f03-a156-9305d18da9ca.jpg",
+      "PackagePath": "staticwebassets\\images\\9ec33065-3529-4f03-a156-9305d18da9ca.jpg"
+    },
+    {
+      "Id": "C:\\Users\\aryas\\OneDrive\\Masaüstü\\Repo-Course\\api-mvc-basic\\CoreAPI\\wwwroot\\images\\a87855ac-572a-4a7d-8530-7e5877d813e3.jpg",
+      "PackagePath": "staticwebassets\\images\\a87855ac-572a-4a7d-8530-7e5877d813e3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\aryas\\OneDrive\\Masaüstü\\Repo-Course\\api-mvc-basic\\CoreAPI\\wwwroot\\images\\bc97eb5d-9c7c-44d6-9683-2e78d1ba93c9.jpg",
+      "PackagePath": "staticwebassets\\images\\bc97eb5d-9c7c-44d6-9683-2e78d1ba93c9.jpg"
+    },
+    {
+      "Id": "C:\\Users\\aryas\\OneDrive\\Masaüstü\\Repo-Course\\api-mvc-basic\\CoreAPI\\wwwroot\\images\\e39d8bac-906a-41a4-bfff-93c118ba959b.jpg",
+      "PackagePath": "staticwebassets\\images\\e39d8bac-906a-41a4-bfff-93c118ba959b.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.CoreAPI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.CoreAPI.props",
+      "PackagePath": "build\\CoreAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.CoreAPI.props",
+      "PackagePath": "buildMultiTargeting\\CoreAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.CoreAPI.props",
+      "PackagePath": "buildTransitive\\CoreAPI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

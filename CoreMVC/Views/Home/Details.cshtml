@@ -1,0 +1,40 @@
+﻿@model CoreMVC.Models.ProductModel
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <title>Ürün Detayları</title>
+
+    <!-- Reference the Details.css file -->
+    <link href="~/css/Details.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+    <h2>Ürün Detayları</h2>
+
+    <div>
+        <h4>@Model.Name</h4>
+        <p><strong>Açıklama:</strong> @Model.Description</p>
+        <p><strong>Fiyat:</strong> <span class="price">@Model.Price.ToString("C")</span></p>
+        <p><strong>Stok Adedi:</strong> @Model.Stock</p>
+
+        <!-- Resim Verisi (Base64) ile Gösterim -->
+        @if (Model.ImageData != null && Model.ImageData.Length > 0)
+        {
+            var base64Image = Convert.ToBase64String(Model.ImageData);  // Convert the byte array to a Base64 string
+            <div>
+                <strong>Ürün Resmi:</strong>
+                <img src="data:image/jpeg;base64,@base64Image" alt="Ürün Resmi" style="max-width: 300px; max-height: 300px;" />
+            </div>
+        }
+        else
+        {
+            <p><strong>Resim bulunamadı.</strong></p>
+        }
+    </div>
+
+    <a href="@Url.Action("DetailsList", "Details")">Geri dön</a>
+
+</body>
+</html>

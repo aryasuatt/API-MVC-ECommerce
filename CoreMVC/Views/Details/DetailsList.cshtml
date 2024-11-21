@@ -1,0 +1,307 @@
+﻿@model IEnumerable<CoreMVC.Models.ProductModel>
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <title>Tüm Ürünler</title>
+
+    <link href="~/css/ListCss.css" rel="stylesheet" type="text/css" />
+    <style>
+
+                /* Kartlar için eşit boyutlar */
+        .card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        /* Kartın içeriği için denetim */
+        .card-body {
+            flex-grow: 1; /* Kart içeriği büyüsün, kartın toplam yüksekliğini alacak şekilde */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Üstten alta tüm alanı doldurur */
+        }
+
+        /* Kartlardaki Resim kısmı */
+        .card-body img {
+                width: 100%; /* Resmin genişliğini %100 yaparak, karta tam uyum sağlamasını sağlarız */
+                height: auto; /* Yüksekliği otomatik yaparak, genişlik ile uyumlu olmasını sağlarız */
+                object-fit: contain; /* Resmi kutuya sığdırırken, kesilmemesi için 'contain' kullanıyoruz */
+                max-height: 200px; /* Resmin yüksekliğini sabitliyoruz, ancak genişliği tam uyacak şekilde */
+            }
+
+        
+
+
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 320px;
+            height: 100%;
+            background-color: #f8f9fa;
+            padding: 20px;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+
+            .cart-sidebar h3 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+        .cart-items {
+            list-style-type: none;
+            padding: 0;
+        }
+
+            .cart-items li {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 15px;
+                padding: 10px;
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            }
+
+                .cart-items li .product-name {
+                    flex: 1;
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+
+                .cart-items li .quantity-controls {
+                    display: flex;
+                    align-items: center;
+                }
+
+        .quantity-controls button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+            .quantity-controls button:hover {
+                background-color: #0056b3;
+            }
+
+        .quantity-controls input {
+            width: 40px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 0 10px;
+            font-size: 16px;
+        }
+
+        .btn-checkout {
+            width: 100%;
+            background-color: #28a745;
+            color: white;
+            padding: 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-checkout:hover {
+                background-color: #218838;
+            }
+
+        .cart-sidebar .cart-icon {
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+            .cart-sidebar .cart-icon.added {
+                transform: scale(1.2);
+            }
+
+        .total-price {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Detaylar Butonu (Amazon Turuncusu) */
+        .btn-primary {
+            background-color: #FF9900; /* Amazon Turuncusu */
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 5px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-primary:hover {
+                background-color: #e68900; /* Daha koyu turuncu hover rengi */
+            }
+
+            .btn-primary:focus, .btn-primary:active {
+                box-shadow: none;
+            }
+
+        /* Sepete Ekle Butonu (Amazon Yeşili) */
+        .btn-success {
+            background-color: #146E33; /* Amazon Yeşili */
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 5px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-success:hover {
+                background-color: #0e5a28; /* Daha koyu yeşil hover rengi */
+            }
+
+            .btn-success:focus, .btn-success:active {
+                box-shadow: none;
+            }
+
+    </style>
+</head>
+<body>
+
+    <h2>Tüm Ürünler</h2>
+
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">@product.Name</h5>
+                        <p><strong>Açıklama:</strong> @product.Description</p>
+                        <p><strong>Fiyat:</strong> @product.Price.ToString("C")</p>
+                        <p><strong>Stok Adedi:</strong> @product.Stock</p>
+
+                        <!-- Resim Gösterimi -->
+                        @if (product.ImageData != null && product.ImageData.Length > 0)
+                        {
+                            var base64Image = Convert.ToBase64String(product.ImageData);
+                            <img src="data:@product.ImageContentType;base64,@base64Image" alt="@product.Name" class="img-fluid" style="max-width: 100%; height: auto;" />
+                        }
+                        else
+                        {
+                            <p><strong>Resim bulunamadı.</strong></p>
+                        }
+
+                        <a href="@Url.Action("Details", "Home", new { Id = product.Id })" class="btn btn-primary mt-3">Detaylar</a>
+                        <!-- Add to Cart button with animation -->
+                        <a href="javascript:void(0);" data-id="@product.Id" data-price="@product.Price" class="btn btn-success btn-add-to-cart mt-3">
+                            Sepete Ekle
+                            <span class="cart-icon">🛒</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Sepet Paneli -->
+    <div class="cart-sidebar">
+        <h3>Sepetim</h3>
+        <ul class="cart-items" id="cart-items-list">
+            <!-- Sepet ürünleri burada dinamik olarak eklenecek -->
+        </ul>
+        <div class="total-price" id="total-price">Toplam Fiyat: ₺0.00</div>
+        <button class="btn-checkout">Ödeme Yap</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const addToCartButtons = document.querySelectorAll('.btn-add-to-cart');
+            const cartItemsList = document.getElementById('cart-items-list');
+            const totalPriceElement = document.getElementById('total-price');
+            let cartItems = [];
+
+            // Add to Cart Button Event Listener
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const productId = this.getAttribute('data-id');
+                    const productName = this.closest('.card-body').querySelector('.card-title').innerText;
+                    const productPrice = parseFloat(this.getAttribute('data-price'));
+
+                    // Add item to cart
+                    addToCart(productId, productName, productPrice);
+                });
+            });
+
+            // Add to Cart Function
+            function addToCart(id, name, price) {
+                const existingItemIndex = cartItems.findIndex(item => item.id === id);
+
+                if (existingItemIndex !== -1) {
+                    cartItems[existingItemIndex].quantity++;
+                } else {
+                    cartItems.push({ id: id, name: name, price: price, quantity: 1 });
+                }
+
+                updateCart();
+            }
+
+            // Update Cart Display
+            function updateCart() {
+                cartItemsList.innerHTML = '';
+                let totalPrice = 0;
+
+                cartItems.forEach(item => {
+                    const li = document.createElement('li');
+                    const itemTotal = item.price * item.quantity;
+                    totalPrice += itemTotal;
+
+                    li.innerHTML = `
+                                <span class="product-name">${item.name} (${item.quantity})</span>
+                                <div class="quantity-controls">
+                                    <button onclick="changeQuantity(${item.id}, 'decrease')">-</button>
+                                    <input type="number" value="${item.quantity}" min="1" onchange="changeQuantity(${item.id}, 'manual', this.value)">
+                                    <button onclick="changeQuantity(${item.id}, 'increase')">+</button>
+                                </div>
+                                <span class="product-total">₺${itemTotal.toFixed(2)}</span>
+                            `;
+                    cartItemsList.appendChild(li);
+                });
+
+                // Update Total Price
+                totalPriceElement.innerText = `Toplam Fiyat: ₺${totalPrice.toFixed(2)}`;
+            }
+
+            // Change Quantity
+            window.changeQuantity = function (id, action, value = null) {
+                const itemIndex = cartItems.findIndex(item => item.id === id);
+
+                if (itemIndex !== -1) {
+                    if (action === 'increase') {
+                        cartItems[itemIndex].quantity++;
+                    } else if (action === 'decrease' && cartItems[itemIndex].quantity > 1) {
+                        cartItems[itemIndex].quantity--;
+                    } else if (action === 'manual' && value > 0) {
+                        cartItems[itemIndex].quantity = parseInt(value);
+                    }
+
+                    updateCart();
+                }
+            };
+        });
+    </script>
+
+</body>
+</html>

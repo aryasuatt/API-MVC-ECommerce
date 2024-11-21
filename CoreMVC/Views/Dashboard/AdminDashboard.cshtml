@@ -1,0 +1,323 @@
+﻿@{
+    Layout = "_Layout";
+}
+@model IEnumerable<CoreMVC.Models.ProductModel>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Proje Mağaza | Dashboard</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/plugins/fontawesome-free/css/all2.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="/plugins/jqvmap/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="/plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="/plugins/summernote/summernote-bs4.min.css">
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+
+
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+            </ul>
+
+        </nav>
+
+        <!-- Sidebar -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <a href="index.html" class="brand-link">
+                <img src="/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <span class="brand-text font-weight-light">Proje Mağaza</span>
+            </a>
+
+            <div class="sidebar">
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block">Arya Çetinkaya</a>
+                    </div>
+                </div>
+
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "Products")" class="nav-link">
+                                <i class="nav-icon fas fa-box"></i>
+                                <p>Ürünler</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "Orders")" class="nav-link">
+                                <i class="nav-icon fas fa-truck"></i>
+                                <p>Siparişler</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "Customers")" class="nav-link">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>Müşteriler</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "Reports")" class="nav-link">
+                                <i class="nav-icon fa fa-chart-bar"></i>
+                                <p>Raporlar</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Content Wrapper -->
+        <div class="content-wrapper">
+            <section class="content pt-3">
+                <div class="container-fluid">
+                    <!-- Stat boxes -->
+                    <div class="row">
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-info">
+                                <div class="inner">
+                                    <h3>150</h3>
+                                    <p>Toplam Ürün Sayısı</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-box"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-success">
+                                <div class="inner">
+                                    <h3>53</h3>
+                                    <p>Son 1 Aydaki Sipariş Sayısı</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-stats-bars"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-warning">
+                                <div class="inner">
+                                    <h3>44</h3>
+                                    <p>Yeni Ürünler (Son 1 Ay)</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-archive"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-danger">
+                                <div class="inner">
+                                    <h3>12</h3>
+                                    <p>İptal Edilen Siparişler</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-close-circled"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main row -->
+                    <div class="row">
+                        <!-- Ürün Kaydetme Yayınlama sectionı-->
+                        <section class="col-lg-5 connectedSortable">
+                            <div class="card">
+                                <div class="card-header p-3">
+                                    <h3 class="card-title">Ürün Yayınlama</h3>
+                                </div>
+                                <div class="card-body">
+                                    <form method="post" action="http://localhost:5219/api/Products" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <label for="ProductId">Ürün ID</label>
+                                            <input type="number" class="form-control" id="ProductId" name="Id" value="0">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="ProductName">Ürün Adı</label>
+                                            <input type="text" class="form-control" id="ProductName" name="Name" placeholder="Ürün Adı" value="">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="Description">Açıklama</label>
+                                            <textarea class="form-control" id="Description" name="Description" rows="3" placeholder="Açıklama" value=""></textarea>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="Price">Fiyat (₺)</label>
+                                            <input type="number" class="form-control" id="Price" name="Price" step="0.01" placeholder="Fiyat" value="0">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="Stock">Stok Miktarı</label>
+                                            <input type="number" class="form-control" id="Stock" name="Stock" placeholder="Stok" value="0">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="ImageUrl">Ürün Fotoğraf URL</label>
+                                            <input type="text" class="form-control" id="ImageUrl" name="ImageUrl" placeholder="Opsiyonel, bir URL girebilirsiniz" value="">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="ImageFileName">Fotoğraf Dosya Adı</label>
+                                            <input type="text" class="form-control" id="ImageFileName" name="ImageFileName" placeholder="Yükleme sırasında otomatik oluşturulabilir" value="">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="ImageContentType">Fotoğraf İçerik Türü</label>
+                                            <input type="text" class="form-control" id="ImageContentType" name="ImageContentType" placeholder="image/jpeg, image/png gibi" value="">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="ImageData">Fotoğraf Veri (Base64)</label>
+                                            <textarea class="form-control" id="ImageData" name="ImageData" rows="3" placeholder="Fotoğrafın Base64 kodunu buraya ekleyebilirsiniz"></textarea>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="Image">Ürün Fotoğrafı</label>
+                                            <input type="file" class="form-control-file" id="Image" name="Image" value="">
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </section>
+
+
+                        <!-- Sipariş Durumu sectionı-->
+                        <section class="col-lg-5 connectedSortable">
+                            <div class="card">
+                                <div class="card-header p-3">
+                                    <h3 class="card-title">Sipariş Durumu</h3>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Sipariş ID</th>
+                                                <th>Ürün Adı</th>
+                                                <th>Durum</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>ORD12345</td>
+                                                <td>Smartphone</td>
+                                                <td><span class="badge bg-success">Tamamlandı</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>ORD12346</td>
+                                                <td>Laptop</td>
+                                                <td><span class="badge bg-warning">Hazırlanıyor</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- Ürün Listesi ve güncelleme sectionı-->
+
+                        <section class="col-lg-12 connectedSortable">
+                            <div class="card">
+                                <div class="card-header p-3">
+                                    <h3 class="card-title">Ürün Listesi ve Stok Güncelleme</h3>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Ürün ID</th>
+                                                <th>Ürün Adı</th>
+                                                <th>Fiyat (₺)</th>
+                                                <th>Stok Miktarı</th>
+                                                <th>Yeni Stok Miktarı</th>
+                                                <th>Güncelle</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- Örnek ürün listesi -->
+                                            <tr>
+                                                <td>PRD001</td>
+                                                <td>Akıllı Telefon</td>
+                                                <td>5000 ₺</td>
+                                                <td>20</td>
+                                                <td>
+                                                    <form method="post" asp-action="UpdateStock" asp-controller="Products">
+                                                        <input type="hidden" name="ProductId" value="PRD001">
+                                                        <input type="number" class="form-control" name="NewStock" min="0" required>
+                                                        <button type="submit" class="btn btn-success">Stok Güncelle</button>
+                                                    </form>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>PRD002</td>
+                                                <td>Laptop</td>
+                                                <td>7500 ₺</td>
+                                                <td>15</td>
+                                                <td>
+                                                    <form method="post" action="/Products/UpdateStock">
+                                                        <input type="hidden" name="ProductId" value="PRD002">
+                                                        <input type="number" class="form-control" name="NewStock" min="0" required>
+                                                        <button type="submit" class="btn btn-success">Stok Güncelle</button>
+                                                    </form>
+                                                </td>
+
+                                            </tr>
+                                            <!-- Diğer ürünler için ek satırlar -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <strong>Proje Mağaza &copy; 2024.</strong> Tüm hakları saklıdır.
+        </footer>
+    </div>
+
+    <!-- REQUIRED SCRIPTS -->
+    <script src="~/plugins/jquery/jquery.min.js"></script>
+    <script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/dist/js/adminlte.min.js"></script>
+
+</body>
+</html>

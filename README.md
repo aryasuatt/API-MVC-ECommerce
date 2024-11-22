@@ -4,8 +4,7 @@ To download the project from GitHub:
 - Go to the GitHub repository (your project’s GitHub link).
 - Click the Code button in the top right corner and select Download ZIP to download the project to your computer.
 - Alternatively, you can clone the repository using the terminal:
-  git clone https://github.com/username/repository-name.git
-  (Note: Replace "username" and "repository-name" with your actual project details.)
+  git clone https://github.com/aryasuatt/API-MVC-ECommerce.git
 
 2. Edit the Database Connection String
 To adapt the project’s database connection to your environment:
@@ -52,8 +51,7 @@ Projeyi GitHub'dan indirmek için:
 - GitHub repository'sine gidin (projenizin GitHub linki).
 - Sağ üstte Code butonuna tıklayın ve Download ZIP seçeneği ile projeyi bilgisayarınıza indirin.
 - Alternatif olarak terminal üzerinden clone işlemi yapabilirsiniz:
-  git clone https://github.com/username/repository-name.git
-  (Not: username ve repository-name'i kendi projenizin bilgileri ile değiştirin.)
+  git clone https://github.com/aryasuatt/API-MVC-ECommerce.git
 
 2. Veritabanı Bağlantı Dizesini (Connection String) Düzenleme
 Projenin veritabanı bağlantısını kendi ortamınıza uyarlamak için:
